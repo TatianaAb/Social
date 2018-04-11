@@ -1,0 +1,51 @@
+
+<section class="friends">
+  <div class="friend-request link">
+    <% if !authorized?(@user.id) %>
+      <%if friends?(@user.id)%>
+        <%= form_tag("/users/#{@user.id}/friendships", :method => :delete) do  %>
+          <%= submit_tag "Unfriend" %>
+        <% end %>
+      <%elsif pending?(@user.id)%>
+        <p>Your friendship is pending</p>
+      <%else%>
+        <%= form_tag("/users/#{@user.id}/friendships", :method => :post) do  %>
+          <%= submit_tag "Add friend" %>
+        <% end %>
+      <%end%>
+    <%end%>
+  </div>
+</section>
+
+
+<section class="posts">
+  <h1><%=@user.name%>'s Profile Page</h1>
+  <%= render partial: "posts/new"%>
+
+  <div class="post-container">
+    <% @posts.each do |post| %>
+      <%= render partial: "posts/show", locals: {post: post}%>
+
+      <div class="submit-comment">
+      <%= form_for :comment, url:"/users/#{@user.id}/comments", method: :post do |f| %>
+        <p>
+          <%= f.label :comment %><br>
+          <%= f.text_field :comment %>
+          <%= f.hidden_field :post_id, value: post.id %>
+          <%= f.submit "comment"%><br>
+        </p>
+      <% end %>
+      </div>
+
+      <%get_comments(post).each do |comment|%>
+        <div class="comment">
+          <p><%= comment.comment%></p>
+          <p class="post-data"> Posted by: <%= User.find(comment.commenter_id).name%> on <%=comment.created_at.to_datetime.in_time_zone("Central Time (US & Canada)").strftime("%A, %d %b %Y") %> </p>
+        </div>
+      <%end%>
+
+    <% end %>
+  </div>
+
+<!-- <p>Look at my posts and post on my wall!</p> -->
+</section>
