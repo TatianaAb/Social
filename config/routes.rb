@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/index'
   get 'user/index'
   resources :user, only: [:new, :create, :show]
   get 'welcome/index'
