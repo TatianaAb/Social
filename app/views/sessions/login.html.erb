@@ -1,2 +1,13 @@
-<h1>Sessions#index</h1>
-<p>Find me in app/views/sessions/index.html.erb</p>
+<h1>Log in</h1>
+<div class="root">
+<%= render partial: "partials/errors"%>
+<%= form_for(:session, url: login_path) do  |f| %>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit "Log In" %>
+<%end%>
+</div>
