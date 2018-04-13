@@ -1,2 +1,29 @@
-<h1>Friendships#index</h1>
-<p>Find me in app/views/friendships/index.html.erb</p>
+<% if authorized?(@user.id) %>
+<section>
+  <h3>Pending requests:</h3>
+  <% @friends_added_me.each do |request| %>
+  <ul>
+    <li><%=get_user(request.user_id).name%></li>
+    <%= form_tag("/users/#{@user.id}/friendships/#{request.user_id}", :method => :delete) do  %>
+      <%= submit_tag "delete" %>
+    <% end %>
+    <%= form_tag("/users/#{@user.id}/friendships/#{request.user_id}", :method => :put) do  %>
+      <%= submit_tag "Add" %>
+    <% end %>
+  </ul>
+  <%end%>
+</section>
+<section>
+  <h3>Friends</h3>
+  <% @friends.each do |friend| %>
+    <ul>
+      <li><%=get_user(friend.user_id).name%></li>
+      <%= form_tag("/users/#{@user.id}/friendships/#{friend.user_id}", :method => :delete) do  %>
+        <%= submit_tag "unfriend" %>
+      <% end %>
+    </ul>
+  <%end%>
+</section>
+<%else%>
+  <h2>Don't try to look at other people's friend requests! Jeez. </h2>
+<%end%>

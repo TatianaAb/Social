@@ -1,0 +1,4 @@
+<%= form_tag("/posts/#{@post.id}", :method => :put) do  %>
+  <%= text_area_tag 'content' %><br>
+  <%= submit_tag "Update" %>
+<% end %>

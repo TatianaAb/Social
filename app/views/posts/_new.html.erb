@@ -1,0 +1,16 @@
+<div class="submit-post">
+  <%= form_for :post, url:"/users/#{@user.id}/posts", method: :post do |f| %>
+   <p>
+     <%if authorized?(@user.id)%>
+       <%= f.label "Post on Your Timeline" %><br>
+       <%= f.text_field :content%>
+     <%else%>
+     <%= f.label "Post on #{@user.name}'s Timeline" %><br>
+     <%= f.text_field :content%>
+     <%end%>
+  </p>
+  <p>
+    <%= f.submit %><br>
+  </p>
+  <% end %>
+</div>

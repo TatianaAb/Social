@@ -1,2 +1,18 @@
-<h1>User#index</h1>
+<h1>User#new</h1>
 <p>Find me in app/views/user/index.html.erb</p>
+<h1>Join us</h1>
+<div class="root">
+<%= render partial: "partials/errors"%>
+<%= form_for @user do  |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit %>
+<%end%>
+</div>
