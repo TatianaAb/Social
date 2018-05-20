@@ -1,0 +1,12 @@
+<div class="like">
+  <%if liked?(post)%>
+    <%= form_tag("/posts/#{post.id}/likes", :method => :delete) do  %>
+      <%= submit_tag "Unlike" %>
+    <% end %>
+  <%else%>
+    <%= form_tag("/posts/#{post.id}/likes", :method => :post) do  %>
+      <%= submit_tag "Like" %>
+    <% end %>
+  <%end%>
+</div>
+
