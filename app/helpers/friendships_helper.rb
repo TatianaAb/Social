@@ -1,5 +1,5 @@
 module FriendshipsHelper
-	include UsersHelper
+  include UsersHelper
   def friends?(id)
     Friendship.find_by(user_id:current_user.id, friend_id: id, accepted: true)
   end
