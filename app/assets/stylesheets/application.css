@@ -1,15 +1,143 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+html {
+  font-family: Helvetica;
+}
+
+header h1{
+  color: #fff;
+  margin: 0;
+  background: #1f8dd6;
+  padding: 5px;
+  padding-top: 30px;
+}
+
+body {
+  color: #777;
+}
+
+.comment {
+  margin-left: 10%;
+  width: 50%;
+  border-top: 1px solid grey;
+}
+
+.post {
+  padding: 20px;
+  border-top: 1px solid grey;
+}
+
+.submit-comment {
+  margin-left: 10%;
+}
+
+.posts {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.post-data {
+  font-size: 50%;
+}
+
+.nav-bar {
+  background: #156295;
+  padding: 10px 40px 10px 10px;
+  text-align: right;
+  height:20px;
+}
+
+.nav-links {
+  /*display: block;*/
+  width: 250px;
+  float: right;
+}
+
+#search {
+  /*display: block;*/
+  height: 20px;
+  width: 150px;
+  float: right;
+}
+
+.nav-links a{
+   padding: 5px;
+   color: #ffffff;
+   text-decoration:none;
+   font-size: 18px;
+}
+
+.nav-links a:hover{
+  background-color: #2093df
+}
+
+
+.friends {
+  float:right;
+  background-color: #1f8dd6;
+  border-radius: 5px;
+  padding: 0px 10px;
+  color: #ffffff;
+}
+
+.friends:hover {
+  background-color: #78bced;
+}
+
+.link a{
+  color: #ffffff;
+  text-decoration:none;
+}
+
+.list li{
+  padding:5px;
+}
+
+a.button {
+    padding: 5px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+    /*background: white;*/
+}
+
+input:hover{
+  /*background-color: #156295*/
+}
+
+.edit-post {
+  float: left;
+  padding-right: 20px;
+}
+
+.like{
+  display: inline-block;
+}
+
+.root {
+  width:40%;
+  margin-top: 5%;
+  margin-left: 35%;
+  margin-right: 30%;
+  border:1px solid grey;
+  padding: 20px;
+}
+
+div.root form{
+  margin-left:30px;
+}
+
+.login label, input {
+  margin:10px 5px;
+  width:60%;
+}
+
+.login {
+}
+
+.small-italic {
+  font-size: 10px;
+  font-style: italic;
+  margin-left: 25%;
+}
